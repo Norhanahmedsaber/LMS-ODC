@@ -1,12 +1,10 @@
-CREATE TABLE users (id SERIAL PRIMARY KEY, first_name VARCHAR(50), last_name VARCHAR(50), email VARCHAR(255), pass
-word VARCHAR(255), role VARCHAR(50), job VARCHAR(255), bio VARCHAR(255));
+CREATE TABLE users (id SERIAL PRIMARY KEY, first_name VARCHAR(50), last_name VARCHAR(50), email VARCHAR(255), password VARCHAR(255), role VARCHAR(50), job VARCHAR(255), bio VARCHAR(255));
 
 CREATE TABLE categories (id SERIAL PRIMARY KEY, name VARCHAR(255));
 
 CREATE TABLE courses (id SERIAL PRIMARY KEY, name VARCHAR(255), description VARCHAR(255), category_id int, FOREIGN KEY(category_id) REFERENCES categories(id));
 
-CREATE TABLE sections (id SERIAL PRIMARY KEY, name VARCHAR(50), section_order int, course_id int, FOREIGN KEY(course_id) R
-EFERENCES courses(id));
+CREATE TABLE sections (id SERIAL PRIMARY KEY, name VARCHAR(50), section_order int, course_id int, FOREIGN KEY(course_id) REFERENCES courses(id));
 
 CREATE TABLE contents (id SERIAL PRIMARY KEY, name VARCHAR(50), content_order int, section_id int, FOREIGN KEY(section_id) REFERENCES sections(id));
 

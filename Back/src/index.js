@@ -1,9 +1,9 @@
 const express = require('express')
 const cors = require('cors')
 
-const course = require("../routers/course")
+const courseRouter = require("../routers/course")
 const userRouter = require('./routers/user')
-
+const categoryRouter=require('./routers/category')
 
 
 const app = express()
@@ -15,8 +15,11 @@ app.use(cors())
 app.use(express.json())
 // routers
 
-app.use(course)
+
+app.use(courseRouter)
 app.use(userRouter)
+
+app.use(categoryRouter)
 
 
 app.listen(process.env.PORT, () => {

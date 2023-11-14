@@ -1,4 +1,4 @@
-const pool = require("../src/database/postgres")
+const pool = require("../database/postgres")
 
 const create = async(course)=>{
     await pool.query('INSERT INTO "courses" (name,description,category_id) VALUES ($1 , $2 , $3)',[course.name , course.description , course.catgory_id])

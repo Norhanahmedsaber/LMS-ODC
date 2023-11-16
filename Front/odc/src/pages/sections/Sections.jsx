@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function Section(props) {
   const [courseData, setCourseData] = useState({})
   const [sections, setSections] = useState([])
-  
+  const params= useParams()
   const fetchSections = () =>{
-    if(props.id) {
-        fetch(`http://localhost:3000/course/${props.id}`)
+    if(params.id) {
+        fetch(`http://localhost:3000/course/${params.id}`)
         .then((res) =>res.json())
         .then((res)=>setCourseData(res))
-    }else {
-      fetch(`http://localhost:3000/course/${1}`)
-        .then((res) =>res.json())
-        .then((resp)=>{
-          console.log(resp)
-          setCourseData(resp)
+        fetch(`http://localhost:3000/sections/${params.id}`)
+        .then((res) => res.json())
+        .then((response)=>{
+          setSections(response)
         })
     }
 }
@@ -33,7 +32,7 @@ useEffect(()=>{
       <div className="h-full col-span-1 bg-slate-700 items-center overflow-y-scroll border-b border-slate-500">
         {sections.map((item, index) => (
           <div className='p-2 border-b border-slate-500 hover:bg-slate-500' key={index}>
-            {item}
+            {item.name}
           </div>
         ))}
       </div>

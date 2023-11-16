@@ -14,6 +14,7 @@ router.post("/courses",async(req,res)=>{
 })
 
 router.get("/courses" , async(req, res)=>{
+    console.log("courses")
     const courses = await Course.getall()
     res.send(courses)
 })

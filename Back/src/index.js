@@ -4,6 +4,7 @@ const cors = require('cors')
 const courseRouter = require("./routers/course")
 const userRouter = require('./routers/user')
 const categoryRouter=require('./routers/category')
+const sectionRouter=require('./routers/section')
 
 
 const app = express()
@@ -18,7 +19,7 @@ app.use(express.json())
 
 app.use(courseRouter)
 app.use(userRouter)
-
+app.use(sectionRouter)
 app.use(categoryRouter)
 
 

@@ -8,10 +8,12 @@ router.get('/sections/:courseId', async (req, res) => {
     if(!courseId) {
         return res.status(400)
     }
-    const sections = await Section.getById
+    const sections = await Section.getById(courseId)
+    res.send(sections)
 })
 
 // Create Section
 router.post('/sections/:courseId', async (req, res) => {
 
 })
+module.exports=router

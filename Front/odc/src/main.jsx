@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './input.css'
 import Categories from './pages/categories/Categories.jsx'
 import Section from './pages/sections/Sections.jsx'
-import Error from './pages/error.jsx'
+import Error from './pages/Error.jsx'
 import Courses from './pages/courses/Courses.jsx'
 
 import {

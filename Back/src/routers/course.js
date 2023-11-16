@@ -22,7 +22,7 @@ router.get("/courses" , async(req, res)=>{
 router.get("/course/:id" , async(req,res)=>{
     const id = req.params.id
     const course = await Course.getcourse(id)
-    res.send(course)
+    res.send(course[0])
 })
 
 router.get("/course/cat/:categoryId" , async(req,res)=>{

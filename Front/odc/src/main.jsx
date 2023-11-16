@@ -3,10 +3,24 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './input.css'
 import Categories from './pages/categories/Categories.jsx'
+import Error from './pages/error.jsx'
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Categories/>,
+    errorElement: <Error />,
+  },
+]);
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Categories />
+        <RouterProvider router={router} />
   </React.StrictMode>,
 )

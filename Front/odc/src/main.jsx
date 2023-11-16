@@ -5,6 +5,7 @@ import './input.css'
 import Categories from './pages/categories/Categories.jsx'
 import Section from './pages/sections/Sections.jsx'
 import Error from './pages/error.jsx'
+import Courses from './pages/courses/Courses.jsx'
 
 import {
   createBrowserRouter,
@@ -15,6 +16,16 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Categories/>,
+    errorElement: <Error />,
+  },
+  {
+    path: "/courses",
+    element: <Courses />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/course",
+    element: <Section />,
     errorElement: <Error />,
   },
 ]);

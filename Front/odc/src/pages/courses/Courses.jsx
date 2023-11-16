@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
+import { Navigate, useNavigation } from 'react-router-dom'
 
 export default function Courses(props) {
+    const Navigate = useNavigate()
     const [courses , setCourses] = useState([])
     const fetchCourses = () =>{
         if(props.catId) {
@@ -17,6 +20,10 @@ export default function Courses(props) {
         fetchCourses()
     },[])
 
+    const courseNav = (courseId)=>{
+       Navigate(`/course/${courseId}`)
+    }
+
   return (
 
 <div className='w-screen h-screen '>
@@ -31,7 +38,9 @@ export default function Courses(props) {
             
     {courses.map((course)=>{
         return (
-            <div className='w-[70%] h-[40%]  bg-[#274472] rounded-xl  hover:bg-[#c1d8fb] flex justify-center items-center cursor-pointer '>
+            <div className='w-[70%] h-[40%]  bg-[#274472] rounded-xl  hover:bg-[#c1d8fb] flex justify-center items-center cursor-pointer 'onClick={()=>{
+                courseNav(course.id)
+            }}>
                 {course.name}      
             </div>
         )

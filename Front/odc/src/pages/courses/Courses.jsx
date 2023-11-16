@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { Navigate, useNavigation } from 'react-router-dom'
+import { Navigate, useNavigation , useParams} from 'react-router-dom'
 
 export default function Courses(props) {
     const Navigate = useNavigate()
+    const params= useParams()
     const [courses , setCourses] = useState([])
     const fetchCourses = () =>{
-        if(props.catId) {
-            fetch(`http://localhost:3000/course/cat/${props.catId}`)
+        if(params.id) {
+            fetch(`http://localhost:3000/course/cat/${params.id}`)
             .then((res) =>res.json())
             .then((res)=>setCourses(res))
         }else {
@@ -31,7 +32,6 @@ export default function Courses(props) {
         <div className=' hover:bg-[#c1d8fb] '>Home</div>
         <div className=' hover:bg-[#c1d8fb] '>About</div>
         <div className=' hover:bg-[#c1d8fb] '>Category</div>
-        <div className=' hover:bg-[#c1d8fb] '>Courses</div>
     </div>
     <div className='w-screen h-screen flex justify-center items-center '>
     <div className='bg-[#e5eced] w-9/12 h-[80%] rounded-xl text-center text-white text-[30px] grid grid-cols-3 place-items-center items-center '>
